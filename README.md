@@ -1,4 +1,3 @@
-# dastyar
 # 🤖 Internal Agent Service
 
 > Local-first internal company assistant — built with **FastAPI** and local **Ollama** LLMs, with guaranteed Persian responses, streaming, and professional structured logging.
@@ -78,6 +77,25 @@ uvicorn app:app --host 0.0.0.0 --port 8001 --reload
 The service starts at **http://localhost:8001** and interactive Swagger docs are available at:
 
 > 📚 **http://localhost:8001/docs**
+
+### 🐳 Run with Docker
+
+The easiest way to run everything (the app **and** Ollama) is via Docker Compose. It automatically starts Ollama, downloads the model, and launches the API:
+
+```bash
+docker compose up --build
+```
+
+- App → **http://localhost:8001**
+- Ollama → **http://localhost:11434**
+- The model and logs are persisted (Ollama in a named volume, logs in `./logs`).
+
+Override the model or settings via environment variables:
+```bash
+OLLAMA_MODEL=qwen2.5:7b MAX_TOKENS=1024 docker compose up --build
+```
+
+> 💡 If you have an NVIDIA GPU, uncomment the `deploy` section of the `ollama` service in `docker-compose.yml` for GPU acceleration.
 
 ### 🔌 API
 
@@ -293,6 +311,25 @@ uvicorn app:app --host 0.0.0.0 --port 8001 --reload
 
 > 📚 **http://localhost:8001/docs**
 
+### 🐳 اجرا با Docker
+
+ساده‌ترین راه اجرای کل سیستم (اپلیکیشن **و** Ollama) از طریق Docker Compose است. به‌صورت خودکار Ollama را اجرا، مدل را دانلود و API را راه‌اندازی می‌کند:
+
+```bash
+docker compose up --build
+```
+
+- اپلیکیشن → **http://localhost:8001**
+- Ollama → **http://localhost:11434**
+- مدل و لاگ‌ها ماندگار می‌مانند (Ollama در یک volume و لاگ‌ها در `./logs`).
+
+تغییر مدل یا تنظیمات با متغیرهای محیطی:
+```bash
+OLLAMA_MODEL=qwen2.5:7b MAX_TOKENS=1024 docker compose up --build
+```
+
+> 💡 اگر GPU انویدیا دارید، بخش `deploy` سرویس `ollama` را در فایل `docker-compose.yml` از حالت کامنت خارج کنید تا از شتاب‌دهی GPU استفاده شود.
+
 ### 🔌 API
 
 #### `GET /` — بررسی سلامت
@@ -441,4 +478,4 @@ llm/
 ### 📝 License
 
 MIT
-
+# dastyar
