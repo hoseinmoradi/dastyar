@@ -1,3 +1,4 @@
+# dastyar
 # 🤖 Internal Agent Service
 
 > Local-first internal company assistant — built with **FastAPI** and local **Ollama** LLMs, with guaranteed Persian responses, streaming, and professional structured logging.
@@ -440,4 +441,4 @@ llm/
 ### 📝 License
 
 MIT
-# dastyar
+
